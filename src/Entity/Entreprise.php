@@ -40,11 +40,6 @@ class Entreprise
     /**
      * @ORM\Column(type="string", length=255)
      */
-    private $nomMagasin;
-
-    /**
-     * @ORM\Column(type="string", length=255)
-     */
     private $siret;
 
     /**
@@ -144,19 +139,7 @@ class Entreprise
 
         return $this;
     }
-
-    public function getNomMagasin(): ?string
-    {
-        return $this->nomMagasin;
-    }
-
-    public function setNomMagasin(string $nomMagasin): self
-    {
-        $this->nomMagasin = $nomMagasin;
-
-        return $this;
-    }
-
+    
     public function getSiret(): ?string
     {
         return $this->siret;

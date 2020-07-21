@@ -12,17 +12,16 @@ class EntrepriseType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('nom') 
-            ->add('prenom')
-            ->add('email')
-            ->add('password')
-            ->add('nomMagasin')
-            ->add('siret')
-            ->add('denominationSocial')
-            ->add('produitType')
-            ->add('adresse')
-            ->add('pays')
-            ->add('codePostal')
+            ->add('nom',TextType::class) 
+            ->add('prenom',TextType::class)
+            ->add('email',EmailType::class)
+            ->add('password',PasswordType::class)
+            ->add('siret', NumberType::class)
+            ->add('denominationSocial',TextType::class)
+            ->add('produitType',ChoiceType::class)
+            ->add('adresse', TextType::class)
+            ->add('pays',CountryType::class)
+            ->add('codePostal',NumberTyper::class)
         ;
     }
 
