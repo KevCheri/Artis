@@ -20,72 +20,72 @@ class Entreprise
     /**
      * @ORM\Column(type="string", length=255)
      */
-    private $Nom;
+    private $nom;
 
     /**
      * @ORM\Column(type="string", length=255)
      */
-    private $Prenom;
+    private $prenom;
 
     /**
      * @ORM\Column(type="string", length=255)
      */
-    private $Email;
+    private $email;
 
     /**
      * @ORM\Column(type="string", length=255)
      */
-    private $Password;
+    private $password;
 
     /**
      * @ORM\Column(type="string", length=255)
      */
-    private $NomMagasin;
+    private $nomMagasin;
 
     /**
      * @ORM\Column(type="string", length=255)
      */
-    private $SIRET;
+    private $siret;
 
     /**
      * @ORM\Column(type="string", length=255)
      */
-    private $DenominationSocial;
+    private $denominationSocial;
 
     /**
      * @ORM\Column(type="string", length=255)
      */
-    private $ProduitType;
+    private $produitType;
 
     /**
      * @ORM\Column(type="string", length=255)
      */
-    private $Adresse;
+    private $adresse;
 
     /**
      * @ORM\Column(type="string", length=255)
      */
-    private $Pays;
+    private $pays;
 
     /**
      * @ORM\Column(type="string", length=5)
      */
-    private $CodePostal;
+    private $codePostal;
 
     /**
      * @ORM\Column(type="object")
      */
-    private $Kbis;
+    private $kbis;
 
     /**
      * @ORM\Column(type="object")
      */
-    private $Identité;
+    private $identite;
 
     /**
      * @ORM\Column(type="object")
      */
-    private $RIB;
+    private $rib;
 
     /**
      * @ORM\Column(type="object")
@@ -99,168 +99,168 @@ class Entreprise
 
     public function getNom(): ?string
     {
-        return $this->Nom;
+        return $this->nom;
     }
 
-    public function setNom(string $Nom): self
+    public function setNom(string $nom): self
     {
-        $this->Nom = $Nom;
+        $this->nom = $nom;
 
         return $this;
     }
 
     public function getPrenom(): ?string
     {
-        return $this->Prenom;
+        return $this->prenom;
     }
 
-    public function setPrenom(string $Prenom): self
+    public function setPrenom(string $prenom): self
     {
-        $this->Prenom = $Prenom;
+        $this->prenom = $prenom;
 
         return $this;
     }
 
     public function getEmail(): ?string
     {
-        return $this->Email;
+        return $this->email;
     }
 
-    public function setEmail(string $Email): self
+    public function setEmail(string $email): self
     {
-        $this->Email = $Email;
+        $this->email = $email;
 
         return $this;
     }
 
     public function getPassword(): ?string
     {
-        return $this->Password;
+        return $this->password;
     }
 
-    public function setPassword(string $Password): self
+    public function setPassword(string $password): self
     {
-        $this->Password = $Password;
+        $this->password = $password;
 
         return $this;
     }
 
     public function getNomMagasin(): ?string
     {
-        return $this->NomMagasin;
+        return $this->nomMagasin;
     }
 
-    public function setNomMagasin(string $NomMagasin): self
+    public function setNomMagasin(string $nomMagasin): self
     {
-        $this->NomMagasin = $NomMagasin;
+        $this->nomMagasin = $nomMagasin;
 
         return $this;
     }
 
-    public function getSIRET(): ?string
+    public function getSiret(): ?string
     {
-        return $this->SIRET;
+        return $this->siret;
     }
 
-    public function setSIRET(string $SIRET): self
+    public function setSiret(string $siret): self
     {
-        $this->SIRET = $SIRET;
+        $this->siret = $siret;
 
         return $this;
     }
 
     public function getDenominationSocial(): ?string
     {
-        return $this->DenominationSocial;
+        return $this->denominationSocial;
     }
 
-    public function setDenominationSocial(string $DenominationSocial): self
+    public function setDenominationSocial(string $denominationSocial): self
     {
-        $this->DenominationSocial = $DenominationSocial;
+        $this->denominationSocial = $denominationSocial;
 
         return $this;
     }
 
     public function getProduitType(): ?string
     {
-        return $this->ProduitType;
+        return $this->produitType;
     }
 
-    public function setProduitType(string $ProduitType): self
+    public function setProduitType(string $produitType): self
     {
-        $this->ProduitType = $ProduitType;
+        $this->produitType = $produitType;
 
         return $this;
     }
 
     public function getAdresse(): ?string
     {
-        return $this->Adresse;
+        return $this->adresse;
     }
 
-    public function setAdresse(string $Adresse): self
+    public function setAdresse(string $adresse): self
     {
-        $this->Adresse = $Adresse;
+        $this->adresse = $adresse;
 
         return $this;
     }
 
     public function getPays(): ?string
     {
-        return $this->Pays;
+        return $this->pays;
     }
 
-    public function setPays(string $Pays): self
+    public function setPays(string $pays): self
     {
-        $this->Pays = $Pays;
+        $this->pays = $pays;
 
         return $this;
     }
 
     public function getCodePostal(): ?string
     {
-        return $this->CodePostal;
+        return $this->codePostal;
     }
 
-    public function setCodePostal(string $CodePostal): self
+    public function setCodePostal(string $codePostal): self
     {
-        $this->CodePostal = $CodePostal;
+        $this->codePostal = $codePostal;
 
         return $this;
     }
 
     public function getKbis()
     {
-        return $this->Kbis;
+        return $this->kbis;
     }
 
-    public function setKbis($Kbis): self
+    public function setKbis($kbis): self
     {
-        $this->Kbis = $Kbis;
+        $this->kbis = $kbis;
 
         return $this;
     }
 
-    public function getIdentité()
+    public function getIdentite()
     {
-        return $this->Identité;
+        return $this->identite;
     }
 
-    public function setIdentité($Identité): self
+    public function setIdentite($identite): self
     {
-        $this->Identité = $Identité;
+        $this->identite = $identite;
 
         return $this;
     }
 
-    public function getRIB()
+    public function getRib()
     {
-        return $this->RIB;
+        return $this->rib;
     }
 
-    public function setRIB($RIB): self
+    public function setRIB($rib): self
     {
-        $this->RIB = $RIB;
+        $this->rib = $rib;
 
         return $this;
     }

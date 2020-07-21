@@ -40,17 +40,17 @@ class Utilisateur
     /**
      * @ORM\Column(type="string", length=255)
      */
-    private $Adresse;
+    private $adresse;
 
     /**
      * @ORM\Column(type="string", length=255)
      */
-    private $Pays;
+    private $pays;
 
     /**
      * @ORM\Column(type="string", length=255)
      */
-    private $CodePostal;
+    private $codePostal;
 
     public function getId(): ?int
     {
@@ -107,7 +107,7 @@ class Utilisateur
 
     public function getAdresse(): ?string
     {
-        return $this->Adresse;
+        return $this->adresse;
     }
 
     public function setAdresse(string $Adresse): self
@@ -119,7 +119,7 @@ class Utilisateur
 
     public function getPays(): ?string
     {
-        return $this->Pays;
+        return $this->pays;
     }
 
     public function setPays(string $Pays): self
@@ -131,12 +131,12 @@ class Utilisateur
 
     public function getCodePostal(): ?string
     {
-        return $this->CodePostal;
+        return $this->codePostal;
     }
 
     public function setCodePostal(string $CodePostal): self
     {
-        $this->CodePostal = $CodePostal;
+        $this->codePostal = $CodePostal;
 
         return $this;
     }
