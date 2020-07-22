@@ -1,27 +1,42 @@
 <?php
-
+// src/Controller/EntrepriseController.php
 namespace App\Controller;
 
-use App\Entity\Entreprise;
 use App\Form\EntrepriseType;
+use App\Entity\Entreprise;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
-use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\Routing\Annotation\Route;
+//use Symfony\Component\Security\Core\Encoder\EntreprisePasswordEncoderInterface;
 
 class EntrepriseController extends AbstractController
 {
-    public function index()
+    /**
+     * @Route("/register", name="entreprise_registration")
+     */
+    public function register(Request $request/*,EntreprisePasswordEncoderInterface $passwordEncoder*/)
     {
-        return $this->render('formulaire/index.html.twig');
-    }
-
-    public function add()
-    {
+     
         $entreprise = new Entreprise();
         $form = $this->createForm(EntrepriseType::class, $entreprise);
 
-    	return $this->render('formulaire/entreprise_form.html.twig', [
-            'form' => $form->createView()
-        ]);
-    }
+        $form->handleRequest($request);
+        if ($form->isSubmitted() && $form->isValid()) {
+            $entityManager = $this->getDoctrine()->getManager();
+            //$password = $passwordEncoder->encodePassword($entreprise, $entreprise->getPlainPassword());
+            $entreprise->setPassword(base64_encode($entreprise->getPlainPassword()));
+            $entityManager->persist($entreprise);
+            $entityManager->flush();
 
+            return $this->redirectToRoute('entreprise_registration');
+        }
+
+        return $this->render(
+            'entreprise/register.html.twig',
+            array(
+                'form' => $form->createView(),
+                'entreprise' => $entreprise
+                )
+        );
+    }
 }

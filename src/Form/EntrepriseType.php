@@ -6,29 +6,32 @@ use App\Entity\Entreprise;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use Symfony\Component\Form\Extension\Core\Type\EmailType;
+use Symfony\Component\Form\Extension\Core\Type\TextType;
+use Symfony\Component\Form\Extension\Core\Type\RepeatedType;
+use Symfony\Component\Form\Extension\Core\Type\PasswordType;
+use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 
 class EntrepriseType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('nom',TextType::class) 
-            ->add('prenom',TextType::class)
-            ->add('email',EmailType::class)
-            ->add('password',PasswordType::class)
-            ->add('siret', NumberType::class)
-            ->add('denominationSocial',TextType::class)
-            ->add('produitType',ChoiceType::class)
-            ->add('adresse', TextType::class)
-            ->add('pays',CountryType::class)
-            ->add('codePostal',NumberTyper::class)
+            ->add('email', EmailType::class)
+            ->add('username', TextType::class)
+            ->add('plainPassword', RepeatedType::class, array(
+                'type' => PasswordType::class,
+                'first_options'  => array('label' => 'Password'),
+                'second_options' => array('label' => 'Repeat Password'),
+            ))
+            ->add('submit', SubmitType::class)
         ;
     }
 
     public function configureOptions(OptionsResolver $resolver)
     {
-        $resolver->setDefaults([
+        $resolver->setDefaults(array(
             'data_class' => Entreprise::class,
-        ]);
+        ));
     }
 }
