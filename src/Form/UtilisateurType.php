@@ -6,19 +6,27 @@ use App\Entity\Utilisateur;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use Symfony\Component\Form\Extension\Core\Type\EmailType;
+use Symfony\Component\Form\Extension\Core\Type\TextType;
+use Symfony\Component\Form\Extension\Core\Type\PasswordType;
+use Symfony\Component\Form\Extension\Core\Type\SubmitType;
+use Symfony\Component\Form\Extension\Core\Type\NumberType;
+
+
 
 class UtilisateurType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('nom')
-            ->add('prenom')
-            ->add('email')
-            ->add('password')
-            ->add('adresse')
-            ->add('pays')
-            ->add('codePostal')
+            ->add('nom',TextType::class)
+            ->add('prenom',TextType::class)
+            ->add('email',EmailType::class)
+            ->add('adresse', TextType::class)
+            ->add('pays', TextType::class)
+            ->add('codePostal', NumberType::class)
+            ->add('password',PasswordType::class)
+            ->add('submit', SubmitType::class)
         ;
     }
 

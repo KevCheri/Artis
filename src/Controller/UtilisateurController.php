@@ -14,7 +14,7 @@ class UtilisateurController extends AbstractController
     /**
      * @Route("/register_utilisateur", name="utilisateur_registration")
      */
-    public function register(Request $request/*,EntreprisePasswordEncoderInterface $passwordEncoder*/)
+    public function register(Request $request/*,UtilisateurPasswordEncoderInterface $passwordEncoder*/)
     {
 
         $utilisateur = new Utilisateur();
@@ -23,8 +23,8 @@ class UtilisateurController extends AbstractController
         $form->handleRequest($request);
         if ($form->isSubmitted() && $form->isValid()) {
             $entityManager = $this->getDoctrine()->getManager();
-            //$password = $passwordEncoder->encodePassword($entreprise, $entreprise->getPlainPassword());
-            $utilisateur->setPassword(base64_encode($utilisateur->getPlainPassword()));
+            //$password = $passwordEncoder->encodePassword($utilisateur, $utilisateur->getPlainPassword());
+            $utilisateur->setPassword(base64_encode($utilisateur->getPassword()));
             $entityManager->persist($utilisateur);
             $entityManager->flush();
 
