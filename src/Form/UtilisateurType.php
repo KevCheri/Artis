@@ -11,6 +11,7 @@ use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\Extension\Core\Type\PasswordType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\Extension\Core\Type\NumberType;
+use Symfony\Component\Form\Extension\Core\Type\CountryType;
 
 
 
@@ -23,7 +24,7 @@ class UtilisateurType extends AbstractType
             ->add('prenom',TextType::class)
             ->add('email',EmailType::class)
             ->add('adresse', TextType::class)
-            ->add('pays', TextType::class)
+            ->add('pays', CountryType::class)
             ->add('codePostal', NumberType::class)
             ->add('password',PasswordType::class)
             ->add('submit', SubmitType::class)
