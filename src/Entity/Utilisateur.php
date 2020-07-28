@@ -114,9 +114,9 @@ class Utilisateur
         return $this->adresse;
     }
 
-    public function setAdresse(string $Adresse): self
+    public function setAdresse(string $adresse): self
     {
-        $this->Adresse = $Adresse;
+        $this->adresse = $adresse;
 
         return $this;
     }
@@ -126,9 +126,9 @@ class Utilisateur
         return $this->pays;
     }
 
-    public function setPays(string $Pays): self
+    public function setPays(string $pays): self
     {
-        $this->Pays = $Pays;
+        $this->pays = $pays;
 
         return $this;
     }
