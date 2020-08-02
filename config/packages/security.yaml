@@ -1,9 +1,17 @@
 security:
     encoders: 
         App\Entity\Entreprise: bcrypt
+        App\Entity\User:
+            algorithm: auto
+
     providers:
         user_db:
-            entity: { class: App\Entity\Entreprise, property: username }
+            entity: { class: App\Entity\User, property: username }
+        # used to reload user from session & other features (e.g. switch_user)
+        app_user_provider:
+            entity:
+                class: App\Entity\User
+                property: email
     firewalls:
         dev:
             pattern: ^/(_(profiler|wdt)|css|images|js)/
@@ -16,7 +24,7 @@ security:
                 check_path: login
             guard:
                 authenticators:
-                    - App\Security\EntrepriseAuthenticator
+                    - App\Security\LoginFormAuthenticator
             logout:
                 path: app_logout
                 # where to redirect after logout

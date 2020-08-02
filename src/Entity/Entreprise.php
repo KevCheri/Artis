@@ -2,7 +2,9 @@
 
 namespace App\Entity;
 
+use App\Model\UtilisateurInterface;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Security\Core\User\UserInterface;
 use Symfony\Component\Validator\Constraints as Assert;
 use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 use App\Model\EntrepriseInterface;
@@ -12,7 +14,7 @@ use App\Model\EntrepriseInterface;
  * @UniqueEntity(fields="email", message="Email already taken")
  * @UniqueEntity(fields="username", message="Username already taken")
  */
-class Entreprise  {
+class Entreprise {
     /**
      * @ORM\Id
      * @ORM\Column(type="integer")
@@ -71,7 +73,7 @@ class Entreprise  {
 
     public function getUsername()
     {
-        return $this->email;
+        return $this->username;
     }
 
     public function setUsername($username)

@@ -1,11 +1,7 @@
 <?php
-
 namespace App\Security;
 
-use App\Entity\Entreprise;
 use App\Entity\User;
-use App\Entity\Utilisateur;
-use App\Model\EntrepriseInterface;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Request;
@@ -23,7 +19,7 @@ use Symfony\Component\Security\Guard\Authenticator\AbstractFormLoginAuthenticato
 use Symfony\Component\Security\Guard\PasswordAuthenticatedInterface;
 use Symfony\Component\Security\Http\Util\TargetPathTrait;
 
-class EntrepriseAuthenticator extends AbstractFormLoginAuthenticator implements PasswordAuthenticatedInterface
+class LoginFormAuthenticator extends AbstractFormLoginAuthenticator implements PasswordAuthenticatedInterface
 {
     use TargetPathTrait;
 
@@ -51,13 +47,13 @@ class EntrepriseAuthenticator extends AbstractFormLoginAuthenticator implements 
     public function getCredentials(Request $request)
     {
         $credentials = [
-            'username' => $request->request->get('username'),
+            'email' => $request->request->get('email'),
             'password' => $request->request->get('password'),
             'csrf_token' => $request->request->get('_csrf_token'),
         ];
         $request->getSession()->set(
             Security::LAST_USERNAME,
-            $credentials['username']
+            $credentials['email']
         );
 
         return $credentials;
@@ -70,12 +66,11 @@ class EntrepriseAuthenticator extends AbstractFormLoginAuthenticator implements 
             throw new InvalidCsrfTokenException();
         }
 
-//        $user = $this->entityManager->getRepository(Entreprise::class)->findOneBy(['username' => $credentials['username'], 'password' => base64_encode($credentials['password'])]);
-        $user = $this->entityManager->getRepository(User::class)->findOneBy(['username' => $credentials['username'], 'password' => base64_encode($credentials['password'])]);
+        $user = $this->entityManager->getRepository(User::class)->findOneBy(['email' => $credentials['email']]);
 
         if (!$user) {
             // fail authentication with a custom error
-            throw new CustomUserMessageAuthenticationException('Username could not be found.');
+            throw new CustomUserMessageAuthenticationException('Email could not be found.');
         }
 
         return $user;
@@ -100,8 +95,8 @@ class EntrepriseAuthenticator extends AbstractFormLoginAuthenticator implements 
             return new RedirectResponse($targetPath);
         }
 
-        // For example : return new RedirectResponse($this->urlGenerator->generate('some_route'));
-        throw new \Exception('TODO: provide a valid redirect inside '.__FILE__);
+        return new RedirectResponse($this->urlGenerator->generate('home'));
+//        throw new \Exception('TODO: provide a valid redirect inside '.__FILE__);
     }
 
     protected function getLoginUrl()
