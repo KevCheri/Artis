@@ -14,7 +14,7 @@ class MagasinType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('nomMagasin', TextType::class)
+            ->add('name', TextType::class)
             ->add('submit', SubmitType::class)
         ;
     }

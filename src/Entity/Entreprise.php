@@ -2,12 +2,8 @@
 
 namespace App\Entity;
 
-use App\Model\UtilisateurInterface;
 use Doctrine\ORM\Mapping as ORM;
-use Symfony\Component\Security\Core\User\UserInterface;
-use Symfony\Component\Validator\Constraints as Assert;
 use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
-use App\Model\EntrepriseInterface;
 
 /**
  * @ORM\Entity
@@ -22,100 +18,34 @@ class Entreprise {
      */
     private $id;
 
+    /**
+     * @var
+     * @ORM\Column(type="string")
+     */
+    private $siret;
 
     /**
-     * @ORM\Column(type="string", length=64, unique=true)
-     * @Assert\NotBlank()
-     * @Assert\Email()
+     * @return mixed
      */
-    private $email;
+    public function getId()
+    {
+        return $this->id;
+    }
 
     /**
-     * @ORM\Column(type="string", length=64, unique=true)
-     * @Assert\NotBlank()
+     * @return mixed
      */
-    private $username;
+    public function getSiret()
+    {
+        return $this->siret;
+    }
 
     /**
-     * @Assert\NotBlank()
-     * @Assert\Length(max=4096)
+     * @param mixed $siret
      */
-    private $plainPassword;
-
-    /**
-     * The below length depends on the "algorithm" you use for encoding
-     * the password, but this works well with bcrypt.
-     *
-     * @ORM\Column(type="string", length=64)
-     */
-    private $password;
-
-    /**
-     * @ORM\Column(type="array")
-     */
-    private $roles;
-
-    public function __construct() {
-        $this->roles = array('ROLE_USER');
-    }
-
-    // other properties and methods
-
-    public function getEmail()
+    public function setSiret($siret)
     {
-        return $this->email;
+        $this->siret = $siret;
     }
-
-    public function setEmail($email)
-    {
-        $this->email = $email;
-    }
-
-    public function getUsername()
-    {
-        return $this->username;
-    }
-
-    public function setUsername($username)
-    {
-        $this->username = $username;
-    }
-
-    public function getPlainPassword()
-    {
-        return $this->plainPassword;
-    }
-
-    public function setPlainPassword($password)
-    {
-        $this->plainPassword = $password;
-    }
-
-    public function getPassword()
-    {
-        return $this->password;
-    }
-
-    public function setPassword($password)
-    {
-        $this->password = $password;
-    }
-
-    public function getSalt()
-    {
-        // The bcrypt and argon2i algorithms don't require a separate salt.
-        // You *may* need a real salt if you choose a different encoder.
-        return null;
-    }
-
-    public function getRoles()
-    {
-        return $this->roles;
-    }
-
-    public function eraseCredentials()
-    {
-    }
-
 
 }

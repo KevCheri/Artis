@@ -20,21 +20,21 @@ class Magasin
     /**
      * @ORM\Column(type="string", length=255)
      */
-    private $nomMagasin;
+    private $name;
 
     public function getId(): ?int
     {
         return $this->id;
     }
 
-    public function getNomMagasin(): ?string
+    public function getName(): ?string
     {
-        return $this->nomMagasin;
+        return $this->name;
     }
 
-    public function setNomMagasin(string $nomMagasin): self
+    public function setName(string $name): self
     {
-        $this->nomMagasin = $nomMagasin;
+        $this->name = $name;
 
         return $this;
     }

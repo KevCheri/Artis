@@ -11,9 +11,9 @@ use Symfony\Component\Routing\Annotation\Route;
 class MagasinController extends AbstractController
 {
     /**
-     * @Route("/magasin", name="create_magasin")
+     * @Route("magasin/add", name="create_magasin")
      */
-    public function register(Request $request)
+    public function add(Request $request)
     {
         $magasin = new Magasin();
         $form = $this->createForm(MagasinType::class, $magasin);

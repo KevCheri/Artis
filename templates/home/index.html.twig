@@ -11,7 +11,10 @@
 <div class="example-wrapper">
     <h1>First Web Commercial</h1>
 </div>
-        <div class="example-wrapper">
+    {% for magasin in magasins %}
+        {{ magasin.name }}
+    {% endfor %}
+    <div class="example-wrapper">
             <p><a class ="btn btn-primary btn-xs" href="{{ path('create_magasin') }}">Creer mon magasin</a></p>
             {% if not app.user %}
                 <p><a class ="btn btn-primary btn-xs" href="{{ path('app_login') }}">Se connecter</a></p>
