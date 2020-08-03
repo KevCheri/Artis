@@ -11,6 +11,12 @@ use Symfony\Component\Routing\Annotation\Route;
 
 class EntrepriseController extends AbstractController
 {
+     /**
+     * @Route("/profile/entreprise", name="profile_entreprise")
+     */
+    public function index(){
+        return $this->render('Entreprise/index.html.twig');
+    }
 //    /**
 //     * @Route("/register", name="entreprise_registration")
 //     */
