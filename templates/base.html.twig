@@ -18,7 +18,11 @@
         <a class="navbar-link" href="{{ path('home') }}">Accueil</a>
           <a class="navbar-link" href="#">Fil d'actualité</a>
           <a class="navbar-link" href="#">Galerie</a>
-          <a class="navbar-link" href="{{ path('app_login') }}">Se connecter</a>  
+          {% if not app.user %}
+          <a class="navbar-link" href="{{ path('app_login') }}">Se connecter</a>
+          {% else %}
+          <a class ="btn btn-primary btn-xs" href="{{ path('app_logout') }}">Se Déconnecter</a></p>
+          {% endif %}  
         </div>
       </nav>
     </header>
