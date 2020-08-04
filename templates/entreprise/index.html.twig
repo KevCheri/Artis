@@ -1,16 +1,35 @@
- {% extends 'base.html.twig' %}
+{% extends 'base.html.twig' %}
 
-{%block body%}
+{% block title %}Entreprise index{% endblock %}
 
-<body class="layout with-sidenav fixed-sidenav under-navbar">
- <div id="example-sidenav" class="sidenav shadow-1 large fixed white">
-      <div class="sidenav-header">
-        <button data-target="example-sidenav" class="sidenav-trigger"><i class="fas fa-times"></i></button>
-        <img class="sidenav-logo dropshadow-1" src="your_img_path" alt="Logo" />
-      </div>
-      <a href="#" class="sidenav-link active">Mon magasin</a>
-      <a href="#" class="sidenav-link">Modifier mon magasin</a>
-      <a href="#" class="sidenav-link">Mes graphiques</a>
-      <a href="#" class="sidenav-link">Paramètre du compte</a>
-    </div>
-{%endblock%}
+{% block body %}
+    <h1>Entreprise index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Siret</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for entreprise in entreprises %}
+            <tr>
+                <td>{{ entreprise.id }}</td>
+                <td>{{ entreprise.siret }}</td>
+                <td>
+                    <a href="{{ path('entreprise_show', {'id': entreprise.id}) }}">show</a>
+                    <a href="{{ path('entreprise_edit', {'id': entreprise.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="3">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('entreprise_new') }}">Create new</a>
+{% endblock %}
