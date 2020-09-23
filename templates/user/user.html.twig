@@ -1,0 +1,35 @@
+{% extends 'base.html.twig' %}
+{% block body %}
+<html>
+  <head>
+    <html>
+  <head>
+    <title>Artis</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/axentix@1.0.0-beta.2/dist/css/axentix.min.css">
+  </head>
+
+  <body class="layout">
+    <div id="example-sidenav" data-ax="sidenav" class="sidenav shadow-1 large fixed white">
+      <div class="sidenav-header">
+        <button data-target="example-sidenav" class="sidenav-trigger"><i class="fas fa-times"></i></button>
+        <img class="sidenav-logo dropshadow-1" src="your_img_path" alt="Logo" />
+      </div>
+      <a href="#" class="sidenav-link active">Mon compte</a>
+      <a href="#" class="sidenav-link">Mes commandes</a>
+      <a href="#" class="sidenav-link">Mes téléchargements</a>
+      <a href="#" class="sidenav-link">Mes favoris</a>
+      <a href="{{ path('graphique') }}" class="sidenav-link">Mes graphiques</a>
+      <a href="{{ path('app_logout') }}" class="sidenav-link">Se deconnecter</a>
+    </div>
+
+    <main>
+      <!-- Code here the main content -->
+    </main>
+        <script src="https://cdn.jsdelivr.net/npm/axentix@1.0.0-beta.2/dist/js/axentix.min.js"></script>
+
+  </body>
+</html>
+{% endblock %}

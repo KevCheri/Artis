@@ -15,7 +15,7 @@
         <div class="navbar-menu ml-auto">
         <a class="navbar-link" href="{{ path('home') }}">Accueil</a>
           <a class="navbar-link" href="#">Fil d'actualité</a>
-          <a class="navbar-link" href="#">Galerie</a>
+          <a class="navbar-link" href="#">Hall</a>
           {% if not app.user %}
           <a class="navbar-link" href="{{ path('app_login') }}">Se connecter</a>
           {% else %}
@@ -29,8 +29,9 @@
       {% block body %} {% endblock %}
     </main>
 
-    <footer class="footer primary">
-      Copyright © 2020 - Artis
-    </footer>
+   
   </body>
 </html>
+ <footer class="footer primary">
+      Copyright © 2020 - Artis
+    </footer>

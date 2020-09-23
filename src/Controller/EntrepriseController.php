@@ -29,10 +29,10 @@ class EntrepriseController extends AbstractController
     }
 
       /**
-     * @Route("/profile/entreprise", name="profile_entreprise")
+     * @Route("/back/entreprise", name="profile_entreprise")
      */
     public function back_entreprise(){
-        return $this->render('Entreprise/entreprise_back.html.twig');
+        return $this->render('entreprise/entreprise_back.html.twig');
     }
 
     /**
