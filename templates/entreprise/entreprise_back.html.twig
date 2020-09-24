@@ -22,7 +22,9 @@
       <a href="#" class="sidenav-link active">Mon compte</a>
       <a href="#" class="sidenav-link">Ma boutique</a>
       <a href="#" class="sidenav-link">Paramètres</a>
-      <a href="#" class="sidenav-link">Mes produits</a>
+      <ul class="sub-menu collapse" id="products"><a href="{{ path('produit_index') }}" class="sidenav-link">Mes produits</a>
+      <li><a href="{{ path('produit_new') }}" class="sidenav-link">Créer un produit</a></li>
+      </ul>
       <a href="#" class="sidenav-link">Mes publicités</a>
       <a href="#" class="sidenav-link">Mes followers</a>
       <a href="{{ path('graphique') }}" class="sidenav-link">Mes graphiques</a>

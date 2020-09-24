@@ -3,24 +3,27 @@
 {% block title %}Produit index{% endblock %}
 
 {% block body %}
-    <h1>Produit index</h1>
+    <h1>Liste de mes Produits</h1>
 
     <table class="table">
         <thead>
             <tr>
                 <th>Id</th>
-                <th>Name</th>
-                <th>actions</th>
+                <th>Nom du produit</th>
+                <th>Description</th>
+                <th>Prix</th>
             </tr>
         </thead>
+        <a href="{{ path('produit_new') }}">Créer un nouveau produit</a>
         <tbody>
         {% for produit in produits %}
             <tr>
                 <td>{{ produit.id }}</td>
                 <td>{{ produit.name }}</td>
                 <td>
-                    <a href="{{ path('produit_show', {'id': produit.id}) }}">show</a>
-                    <a href="{{ path('produit_edit', {'id': produit.id}) }}">edit</a>
+                    <a href="{{ path('produit_show', {'id': produit.id}) }}"> Voir le produit</a>
+                    <a href="{{ path('produit_edit', {'id': produit.id}) }}"> Modifier</a>
+                    <a href="{{path('produit_delete', {'id': produit.id}) }}"> Supprimer
                 </td>
             </tr>
         {% else %}
@@ -30,6 +33,4 @@
         {% endfor %}
         </tbody>
     </table>
-
-    <a href="{{ path('produit_new') }}">Create new</a>
 {% endblock %}
