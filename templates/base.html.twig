@@ -5,24 +5,33 @@
     <title>Artis</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" type="text/css" href="custom.css"/>
+     {% block stylesheets %}
+            <link href="{{ asset('template/css/custom.css') }}" rel="stylesheet" />
+        {% endblock %}
+
   </head>
 
   
   <body class="layout with-sidenav fixed-sidenav under-navbar">
     <header>
-      <nav class="navbar shadow-1 primary">
+    <div class="navbar-menu_ml-auto">
+      <nav class="navbar_primary">
         <a href="#" target="_blank" class="navbar-brand">Artis</a>
-        <div class="navbar-menu ml-auto">
+        
         <a class="navbar-link" href="{{ path('home') }}">Accueil</a>
           <a class="navbar-link" href="#">Fil d'actualité</a>
           <a class="navbar-link" href="#">Hall</a>
           {% if not app.user %}
           <a class="navbar-link" href="{{ path('app_login') }}">Se connecter</a>
           {% else %}
-          <a class ="btn btn-primary btn-xs" href="{{ path('app_logout') }}">Se Déconnecter</a></p>
+          <a class ="navbar-link" href="{{ path('app_logout') }}">Se Déconnecter</a></p>
           {% endif %}  
         </div>
       </nav>
+</header>
+
+
     </header>
 
     <main>
@@ -34,6 +43,8 @@
    
   </body>
 </html>
- <footer class="footer primary">
+<!-- FOOTER SECTION -->
+<footer class="footer primary">
       Copyright © 2020 - Artis
     </footer>
+ 

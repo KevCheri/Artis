@@ -8,7 +8,7 @@ use Symfony\Component\Routing\Annotation\Route;
 class GraphiqueController extends AbstractController
 {
     /**
-     * @Route("/graphique", name="graphique")
+     * @Route("/graphique/entreprise", name="graphique")
      */
     public function index()
     {

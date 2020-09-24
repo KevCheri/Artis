@@ -15,12 +15,12 @@
         {{ magasin.name }}
     {% endfor %}
     <div class="example-wrapper">
-            <p><a class="navbar-link" href="{{ path('app_register')}}"> S'enregistrer</a></p>
-            <p><a class ="btn btn-primary btn-xs" href="{{ path('create_magasin') }}">Creer mon magasin</a></p>
+            <p><button class="navbar-link" href="{{ path('app_register')}}"> S'enregistrer</button></p>
+            <p><button class ="btn btn-primary btn-xs" href="{{ path('create_magasin') }}">Creer mon magasin</button></p>
             {% if not app.user %}
-                <p><a class ="btn btn-primary btn-xs" href="{{ path('app_login') }}">Se connecter</a></p>
+                <p><button class ="btn btn-primary btn-xs" href="{{ path('app_login') }}">Se connecter</button></p>
             {% else %}
-                <p><a class ="btn btn-primary btn-xs" href="{{ path('app_logout') }}">Se Déconnecter</a></p>
+                <p><button class ="btn btn-primary btn-xs" href="{{ path('app_logout') }}">Se Déconnecter</button></p>
             {% endif %}
 
         </div>
